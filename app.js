@@ -1,41 +1,61 @@
 
+//           تعريف كائن الطلبات
+const request = require('request');
+// تعريف كائن الملفات
+const fs = require('fs');
+// جدول
+var list = {};
 
-var request = require('request');
-var fs = require('fs');
-var list = {}
 
-
-
+// دالة البدأ
 function start() {
 
 
 
-
+    // قراءة ملف المعلومات
     fs.readFile('./user.json', function(err, data) {
+        // عند اكمال القراءة
+
+        // اذا حدث خطأ
         if (err) return console.log(err);
 
+        // حذف الفراغات الزائدة من النص اذا وجدت
         data = data.toString().trim();
 
+        // عرض المحتوى في سجل
         console.log(data);
 
+        // محاولة تحويل البيانات الى كائن
         try {
             data = JSON.parse(data);
         }
+
+        // في حالة حصل خطأ بالتحويل
         catch (e) { console.log("error in file"); return }
 
+
+        // انشاء متغييرات للبيانات
         var mess = data.mess,token = data.token, page = data.page;
 
+        //  التحقق من عمل كود access_toekn
         check(token,function (er, req, body) {
+            // في حال حدوث خطأ بالاتصال
             if (er) return console.log(err);
 
+            // تحويل البيانات المستلمة من json  الى كائن
             body = JSON.parse(body);
+            // اذا حدث خطأ في الكود
             if (body.error) return console.log(body.error);
             delete body;
 
-            // new user
+            // اذا كان الكود يعمل بشكل صحيح
+            // تكوين كائن عملية جديدة
             var ur = new user(token,mess,page);
+            // تحديد حدد مرات تكرار العملية
             ur.cm = 2;
+            // اضافة العملية الى الجدول
             list[ur.id] = ur;
+            // بدء العملية
             ur.start();
 
 
@@ -48,120 +68,187 @@ function start() {
 }
 
 
-
+// دالة تحقق من صحة كود المستخدم
 function check(token,fn) {
+    // متغيير يحوي قيمة رابط طلب جلب الاي دي مع كود المستخدم
     var url = 'https://graph.facebook.com/v2.10/me?fields=id&access_token='+token;
     delete token;
+
+    // كائن يحوي معلومات الارسال
     var op = {
         headers: {'content-type': 'application/x-www-form-urlencoded'},
         url: url,
     }
 
+
+    // ارسال المعلومات الى الرابط
     request.get(op, fn
     );
 }
 
 
-function user(token,mess,page,time) {
-    this.token = token;
-    this.mess = mess;
-    this.t = time || 5;
-    this.times = 1;
-    this.post= {};
-    this.run = false;
-    this.cn = 0;
-    this.status = 'stop';
-    this.id = page;
-    this.cm = 1;
+/*  صنف لانشاء عملية جديدة */
 
-    var self = this;
+class user {
+    constructor(token,mess,page,time) {
 
-    delete token,mess,page,time;
-
-
-
+        // تحديد خصائص اساسية
+        this.token = token;
+        this.mess = mess;
+        this.t = time || 5;
+        this.times = 1;
+        this.post= {};
+        this.run = false;
+        this.cn = 0;
+        this.status = 'stop';
+        this.id = page;
+        this.cm = 1;
 
 
-    this.check = function (page) {
+      //  delete token,mess,page,time;
+    }
 
-        page = this.id;
-        var url = "https://graph.facebook.com/v2.10/"+(page)+"/feed";
+    // خاصية دالة تقوم بالتحقق اذا كان يوجد منشور جديد في الصفحة
+    check() {
+        // start check
+
+        //---------------
+
+        // متغيير يحوي ايدي الصفحة
+        var page = this.id;
+        // متغيير يحوي رابط لارسال طلب جلب منشورات الصفحة
+        var url = "https://graph.facebook.com/v2.10/" + (page) + "/feed";
+        // اضافة كود token الى الرابط
         url += '?access_token=' + this.token;
 
+        // self => this
+        var self = this;
 
-
+        // ارسال البيانات الى الرابط
         request.get({
-            headers: {'content-type' : 'text/json'},
-            url:     url,
+            headers: {'content-type': 'text/json'},
+            url: url,
 
 
             // on comple comment
         }, function (error, req, body) {
 
-            if (error)
-            {
+            // استلام النتائج
+
+            // في حال وجود خطأ بالاتصال
+            if (error) {
                 console.log(error);
 
+                // اعادة المحاولة
                 self.check();
 
                 return;
             }
 
 
-
+            // محاولة تحويل البيانات الى كائن
             try {
 
                 body = JSON.parse(body);
             }
 
+            // في حال لم تنجح عملية التحويل
             catch (e) {
+                // طباعة معلومات الارسال في السجل
                 console.log(req.headers);
             }
 
             //console.log(body.data);
-            data = body.data;
+
+            // تعرف متغيير يحوي على البيانات المطلوبة
+          var  data = body.data;
+            // يحتوي متغيير data منشورات الصفحة
+
+            //  عمل تكرار على جميع المنشورات للتحقق من وقت انشاء المنشور
             for (var i in data) {
+                // تعريف متغيير يحوي زمن تكوين المنشور
                 var d = data[i].created_time;
-                var   time = new Date().getTime() - Date.parse(d);
-                var min= getMin(time);
+                // متغيير فترة تكوين المنشور
+                var time = new Date().getTime() - Date.parse(d);
+                // تعريف متغيير يوحوي زمن تكوين المنشور بالدقائق
+                var min = getMin(time);
+                console.log('------------------------------');
                 console.log('post time :' + min);
+                // اذا كان زمن تكوين المنشور بالدقائق اكبر او يساوي الزمن المحدد في العملية المطلوبة
                 if (min <= self.t) {
 
+
+                    // متغيير يحتوي على قيمة اي دي المنشور
                     var post_id = data[i].id;
-                    if (! (post_id in self.post))
-                    {
+
+                    // اذا كان لم يتم التعليق على المنشور
+                    if (!(post_id in self.post)) {
+                        console.log('----------------------------');
                         console.log('found new post !');
                         console.log('working in comment ...');
+
+                        // اضافة اي دي المنشور الى القائمة ليتعرف عليه في حال تم العمل عليه مسيقا
                         self.post[post_id] = 1;
 
                         //console.log(self.post);
-                        comment(post_id,self.mess,self.id);
+
+                        // تنفيذ دالة التعليق على المنشور
+                        comment(post_id, self.mess, self.id);
                         return;
                     }
 
                 }
-                if (self.run) self.check();
+
+                // اذا كانت العملية تعمل اعادة التحقق
+                if (self.run) { setTimeout(function () {
+                    self.check();
+                },500);
+                }
             }
 
         });
     }
 
-    this.start = function () {
-        this.run = true;
-        this.check(this.id);
-        this.status = "running";
-    }
+        //--------------
+      // end check
 
-    this.stop = function () {
-        this.run = false;
-        this.status = 'stop';
-    }
+
+
+
+
+
+        // دالة لبدأ العملية
+        start() {
+
+            // جعل خاصية العملية رن صائبة
+            this.run = true;
+            // بدأ التنصت على المنشورات الجديدة
+            this.check(this.id);
+            // تحديد حالة العملية تعمل
+            this.status = "running";
+        }
+
+        // دالة لايقاف العملية
+        stop() {
+
+            // جعل خاصية العملية رن غير مفعلة
+            this.run = false;
+            // تحديد حالة العملية متوقفة
+            this.status = 'stop';
+
+
+
+
+        }
+
 
 
 }
 
 
 
+
+// دالة لتحويل زمن المنشور بالدقائق
 function getMin(millis) {
     var minutes = Math.floor(millis / 60000);
     return minutes;
@@ -173,15 +260,19 @@ function getMin(millis) {
 start();
 
 
-
+// دالة للتعليق على المنشور
 
 function comment(post_id,mess,id) {
 
 
-    var host = 'https://graph.facebook.com'
+    // متغيير يحوي رابط facebook graph
+    var host = 'https://graph.facebook.com';
+    // متغيير يحوي رابط التعليق على المنشور
     var url = host+'/v2.10/'+post_id+'/comments';
+    // جميع خواص العملية
     var self = list[id];
 
+    // ارسال التعليق
     request.post({
         headers: {'content-type' : 'application/x-www-form-urlencoded'},
         url:     url,
@@ -193,6 +284,7 @@ function comment(post_id,mess,id) {
         // on comple comment
     }, function (error, req, body) {
 
+        // اذا حصل خطأ بالاتصال
         if(error)
         {
             console.log(error);
@@ -202,6 +294,7 @@ function comment(post_id,mess,id) {
         }
 
 
+        // تحويل البيانات الى كائن
         body = JSON.parse(body);
 
         if (body.error)
