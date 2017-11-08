@@ -1,10 +1,28 @@
 
+
 //           تعريف كائن الطلبات
 const request = require('request');
 // تعريف كائن الملفات
 const fs = require('fs');
 // جدول
 var list = {};
+
+(function () {
+
+    var http = require('http');
+
+//create a server object:
+    http.createServer(function (req, res) {
+        res.write('Hello World!'); //write a response to the client
+        res.end(); //end the response
+    }).listen(process.env.PORT || 5000);
+
+    console.log('server running');
+
+    start();
+
+
+})();
 
 
 // دالة البدأ
@@ -199,11 +217,14 @@ class user {
 
                 }
 
-                // اذا كانت العملية تعمل اعادة التحقق
-                if (self.run) { setTimeout(function () {
-                    self.check();
-                },500);
-                }
+
+            }
+
+            // اذا كانت العملية تعمل اعادة التحقق
+            if (self.run) { setTimeout(function () {
+                self.check();
+            },1900);
+
             }
 
         });
@@ -257,7 +278,6 @@ function getMin(millis) {
 
 
 
-start();
 
 
 // دالة للتعليق على المنشور
