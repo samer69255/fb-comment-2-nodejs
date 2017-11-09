@@ -9,15 +9,74 @@ var list = {};
 
 (function () {
 
-    var http = require('http');
+    var express = require('express');
+    var app = express();
 
-//create a server object:
-    http.createServer(function (req, res) {
-        res.write('Hello World!'); //write a response to the client
-        res.end(); //end the response
-    }).listen(process.env.PORT || 5000);
 
-    console.log('server running');
+    var bodyParser = require('body-parser');
+    app.use(bodyParser.json()); // support json encoded bodies
+    app.use(bodyParser.urlencoded({ extended: true }));
+
+
+    app.use(express.static('public'));
+    app.get('/', function (req, res) {
+        res.sendFile( __dirname + "/" + "index.html" );
+    });
+
+    app.get('/get',function (req, res) {
+
+        fs.readFile('./user.json',function (err,data) {
+
+            if (err) return console.log(err);
+
+            data.toString();
+            res.send(data);
+        });
+
+    });
+
+    app.post('/save',function (req, res) {
+
+        console.log(req.body.token);
+
+        var
+            token = req.body.token,
+            page = req.body.page,
+            mess = req.body.mess;
+        if (!(token && page && mess))
+        {
+            return res.send('error');
+        }
+
+        var ob = {
+            token:token,
+            page:page,
+            mess:mess
+        }
+        var json = JSON.stringify(ob,null,4);
+
+
+        fs.writeFile("./user.json", json, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+
+            res.send(json);
+        });
+
+
+
+
+    });
+
+    var server = app.listen(process.env.PORT || 5000, function () {
+        var host = server.address().address;
+        var port = server.address().port;
+
+        console.log("Example app listening at http://%s:%s", host, port)
+    })
+
+
 
     start();
 
@@ -70,7 +129,7 @@ function start() {
             // تكوين كائن عملية جديدة
             var ur = new user(token,mess,page);
             // تحديد حدد مرات تكرار العملية
-            ur.cm = 2;
+            ur.cm = 10;
             // اضافة العملية الى الجدول
             list[ur.id] = ur;
             // بدء العملية
