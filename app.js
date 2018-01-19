@@ -25,7 +25,7 @@ var list = {};
 
     app.get('/get',function (req, res) {
 
-        fs.readFile('./user.json',function (err,data) {
+        fs.readFile(__dirname + '/user.json',function (err,data) {
 
             if (err) return console.log(err);
 
@@ -56,12 +56,16 @@ var list = {};
         var json = JSON.stringify(ob,null,4);
 
 
-        fs.writeFile("./user.json", json, function(err) {
+        fs.writeFile(__dirname + "/user.json", json, function(err) {
             if(err) {
                 return console.log(err);
             }
 
             res.send(json);
+        });
+
+        app.post('/stop', function () {
+
         });
 
 
@@ -90,7 +94,7 @@ function start() {
 
 
     // قراءة ملف المعلومات
-    fs.readFile('./user.json', function(err, data) {
+    fs.readFile(__dirname + '/user.json', function(err, data) {
         // عند اكمال القراءة
 
         // اذا حدث خطأ
@@ -129,7 +133,7 @@ function start() {
             // تكوين كائن عملية جديدة
             var ur = new user(token,mess,page);
             // تحديد حدد مرات تكرار العملية
-            ur.cm = 10;
+            ur.cm = 100;
             // اضافة العملية الى الجدول
             list[ur.id] = ur;
             // بدء العملية
@@ -263,6 +267,8 @@ class user {
                         console.log('----------------------------');
                         console.log('found new post !');
                         console.log('working in comment ...');
+                       // console.log(data[i].message);
+                       var mess = self.mess.replace(/<post>/gi,data[i].message+'\n');
 
                         // اضافة اي دي المنشور الى القائمة ليتعرف عليه في حال تم العمل عليه مسيقا
                         self.post[post_id] = 1;
@@ -270,7 +276,7 @@ class user {
                         //console.log(self.post);
 
                         // تنفيذ دالة التعليق على المنشور
-                        comment(post_id, self.mess, self.id);
+                        comment(post_id, mess, self.id);
                         return;
                     }
 
