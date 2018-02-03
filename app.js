@@ -4,6 +4,8 @@
 const request = require('request');
 // تعريف كائن الملفات
 const fs = require('fs');
+
+var crypto = require('crypto');
 // جدول
 var list = {};
 
@@ -11,6 +13,7 @@ var list = {};
 
     var express = require('express');
     var app = express();
+
 
 
     var bodyParser = require('body-parser');
@@ -268,7 +271,16 @@ class user {
                         console.log('found new post !');
                         console.log('working in comment ...');
                        // console.log(data[i].message);
-                       var mess = self.mess.replace(/<post>/gi,data[i].message+'\n');
+                       var mess = self.mess.replace(/<post>/gi,data[i].message+'').replace(/<n>/gi,'\n');
+
+                       var en = mess.match(/en(.+)/);
+                       if (en)
+                       {
+                           en = en[1];
+                           en = en.replace(/[\(\)]/g, '');
+                           mess = mess.replace('en','');
+                           mess = mess.replace('('+en+')',encrypt(en));
+                       }
 
                         // اضافة اي دي المنشور الى القائمة ليتعرف عليه في حال تم العمل عليه مسيقا
                         self.post[post_id] = 1;
@@ -400,4 +412,12 @@ function comment(post_id,mess,id) {
 
 
 
+}
+
+function encrypt(text){
+    'use strict'
+    var cipher = crypto.createCipher('aes-256-ctr','samer');
+    var crypted = cipher.update(text,'utf8','hex');
+    crypted += cipher.final('hex');
+    return crypted;
 }
