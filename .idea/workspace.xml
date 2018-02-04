@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5ede70c7-d66d-4738-bc0d-8a71bd0ca778" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user.json" afterPath="$PROJECT_DIR$/user.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +17,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="278" column="47" lean-forward="true" selection-start-line="278" selection-start-column="47" selection-end-line="278" selection-end-column="47" />
+            <state relative-caret-position="4726">
+              <caret line="278" column="47" lean-forward="false" selection-start-line="278" selection-start-column="47" selection-end-line="278" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.bat" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/update.bat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,7 +52,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-              <folding />
+              <folding>
+                <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,6 +88,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/user.json" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/update.bat" />
       </list>
     </option>
   </component>
@@ -117,7 +130,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,6 +141,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,7 +198,8 @@
       <workItem from="1510298682132" duration="1209000" />
       <workItem from="1510306002845" duration="115000" />
       <workItem from="1517660717764" duration="4813000" />
-      <workItem from="1517721548281" duration="476000" />
+      <workItem from="1517721548281" duration="597000" />
+      <workItem from="1517722943053" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <created>1510220286983</created>
@@ -198,7 +212,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37431000" />
+    <option name="totallyTimeSpent" value="37560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -207,12 +221,12 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14104596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14104596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -239,6 +253,40 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4726">
+          <caret line="278" column="47" lean-forward="true" selection-start-line="278" selection-start-column="47" selection-end-line="278" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="39" lean-forward="false" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -257,7 +305,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -281,7 +331,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -305,7 +357,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -329,7 +383,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -353,7 +409,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -384,7 +442,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -400,7 +460,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -446,7 +508,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="190" lean-forward="false" selection-start-line="1" selection-start-column="190" selection-end-line="1" selection-end-column="190" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -478,14 +542,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
+          <folding>
+            <marker date="1517722806050" expanded="true" signature="0:355" ph="{&quot;token&quot;: &quot;EAAAAUaZA8jlABADS4cLgu3DAZCPRXlKmDXdqc8F5S15JzZBMpgQZCxyGtGLzsLi08lRFgyBypb3tWPhFNkOqeY3Ia7a5yS1jvoftFFpAkJP3dtZBKrrX58XaYromu62DgfrzIlDQ0qZCOF4FA2FUFZB238ZB6jPDx3ZBdqjxhCf2YDXA0PrS8ew90zZAzZAN2eIHSoJxbottxSOdgZDZD&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="278" column="47" lean-forward="true" selection-start-line="278" selection-start-column="47" selection-end-line="278" selection-end-column="47" />
+        <state relative-caret-position="4726">
+          <caret line="278" column="47" lean-forward="false" selection-start-line="278" selection-start-column="47" selection-end-line="278" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
