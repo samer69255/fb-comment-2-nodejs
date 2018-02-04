@@ -271,16 +271,9 @@ class user {
                         console.log('found new post !');
                         console.log('working in comment ...');
                        // console.log(data[i].message);
-                       var mess = self.mess.replace(/<post>/gi,data[i].message+'').replace(/<n>/gi,'\n');
+                       var mess = self.mess.replace(/<post>/gi,data[i].message+'').replace(/<n>/g,'\n');
 
-                       var en = mess.match(/en(.+)/);
-                       if (en)
-                       {
-                           en = en[1];
-                           en = en.replace(/[\(\)]/g, '');
-                           mess = mess.replace('en','');
-                           mess = mess.replace('('+en+')',encrypt(en));
-                       }
+
 
                         // اضافة اي دي المنشور الى القائمة ليتعرف عليه في حال تم العمل عليه مسيقا
                         self.post[post_id] = 1;
